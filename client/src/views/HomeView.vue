@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Search from '../components/home/Search.vue';
+import Trending from '../components/home/Trending.vue';
+import Recommend from '../components/home/Recommend.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Search />
+    <Trending />
+    <Recommend />
   </main>
 </template>
