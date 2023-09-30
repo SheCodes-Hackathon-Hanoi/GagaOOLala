@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+// import useTravel from "../../stores/travel";
+// import { onMounted } from 'vue';
+
+// const { getRecommendTrip } = useTravel();
+// onMounted(() => getRecommendTrip());
+</script>
 <template>
   <div class="text-header">GỢI Ý CHUYẾN ĐI THEO SỞ THÍCH CỦA BẠN</div>
   <div class="flex-container">
