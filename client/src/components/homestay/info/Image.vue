@@ -2,9 +2,9 @@
 import { ref, onMounted } from "vue";
 
 const images = ref([
-  "https://picsum.photos/id/237/1024/800",
+  "../../../../public/demo_rcm.jpeg",
   "https://picsum.photos/id/238/1024/800",
-  "https://picsum.photos/id/239/1024/800",
+  "../../../../public/demo_rcm.jpeg",
 ]);
 
 let active = ref(0);
