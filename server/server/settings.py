@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'travel.apps.TravelConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

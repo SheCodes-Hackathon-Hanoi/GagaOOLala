@@ -7,7 +7,7 @@ import { RouterLink } from "vue-router";
     style="background-color: #c5d12c"
   >
     <div
-      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4"
+      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
     >
       <RouterLink to="/" class="flex items-center">
         <span
@@ -37,7 +37,7 @@ import { RouterLink } from "vue-router";
       </div>
     </div>
   </nav>
-  <nav class="bg-gray-50 dark:bg-gray-700 flex flex-wrap items-center justify-between">
+  <nav class="bg-while dark:bg-gray-700 flex flex-wrap items-center justify-between">
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
       <div class="flex items-center">
         <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">

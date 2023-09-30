@@ -12,7 +12,6 @@ class CustomUser(AbstractUser):
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default="customer")
     phone = models.CharField(max_length=15, blank=True, null=True)
 
-
 class TravelList(models.Model):
     title = models.TextField(default="", blank=False)
     hostName = models.TextField(default="", blank=False)
