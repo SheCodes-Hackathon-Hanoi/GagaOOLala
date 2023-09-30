@@ -20,9 +20,14 @@ from travel import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'travel', views.TravelList, 'travel')
+router.register(r"travel", views.TravelListView, basename='travel')
+router.register(r"user", views.CustomUserView, basename='user')
+router.register(r"booking", views.BookingView, basename='booking')
+router.register(r"favor", views.FavorView, basename='favor')
+router.register(r"review", views.ReviewView, basename='review')
 
 urlpatterns = [
     path("api/trending", views.listTrending),
-    path('api/', include(router.urls)),
+    path("api/", include(router.urls)),
+    # path("api/instances/", views.TravelListView.as_view(), name="instances"),
 ]
