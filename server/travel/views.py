@@ -42,8 +42,8 @@ def listTrending(request):
                     "type",
                 ],
             )
+            travel_dict["homestay_img"] = travel.homestay_img.path
             travels.append(travel_dict)
-    print(type(travel_dict))
     return JsonResponse(travels, safe=False)
 
 

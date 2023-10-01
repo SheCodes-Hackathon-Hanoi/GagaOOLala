@@ -9,9 +9,9 @@ onMounted(() => getTrendingTrip());
 <template>
   <div class="text-header">THỊNH HÀNH</div>
   <div class="flex-container">
-    <div style="position: relative" v-for="trip in travels" :key="trip.id">
+    <div v-for="trip in travels" style="position: relative" >
       <img
-        src={{ `..\..\..\..\server\assets\homestay_img\0${trip.id}.jpg` }}
+        src={{ trip.homestay_img }}
         style="border-radius: 23px; height: 100%"
         alt="Travel image"
       />
@@ -19,7 +19,7 @@ onMounted(() => getTrendingTrip());
         {{trip.title}}
       </div>
     </div>
-    <!-- <div style="position: relative">
+    <div style="position: relative">
       <img
         src="../../../public/demo_rcm.jpeg"
         style="border-radius: 23px; height: 100%"
@@ -29,7 +29,7 @@ onMounted(() => getTrendingTrip());
         Mù Cang Chải
       </div>
     </div>
-    <div style="position: relative">
+    <!-- <div style="position: relative">
       <img
         src="../../../public/demo_rcm.jpeg"
         style="border-radius: 23px; height: 100%"

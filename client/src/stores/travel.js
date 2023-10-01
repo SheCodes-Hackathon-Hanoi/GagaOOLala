@@ -8,19 +8,18 @@ export default function useTravel() {
   const errors = ref({}); //object
 
   const getRecommendTrip = async () => {
-    const response = await axios.get("/recommend/", {
-      headers: { "Access-Control-Allow-Origin": "*" },
+    const response = await axios.get("/recommend/",{
       data: {
         user_id: 1,
       },
     });
-    console.log(response.data);
     travels.value = response.data;
   };
   const getTrendingTrip = async () => {
     const response = await axios.get("/trending/");
-    console.log(response.data);
-    travels.value = response.data;
+    return response.data;
+    // travels.value = response.data;
+    // console.log(travels.value);
   };
 
   return {
