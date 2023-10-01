@@ -1,12 +1,22 @@
 <script setup>
 import Info from "./info/Info.vue";
 import Image from "./info/Image.vue";
+import useTravel from "../../stores/travel";
+import { onMounted } from "vue";
+const { getTravel, travel } = useTravel();
+const props = defineProps({
+    id: {
+        required: true,
+        type: String,
+    },
+});
+onMounted(() => getTravel(props.id));
 </script>
 <template>
-  <div class="header-text">Homestay của anh Nùng Cao N</div>
+  <div class="header-text">{{ travel.title }}</div>
   <div class="container">
     <Image />
-    <Info />
+    <Info :id="props.id"/>
   </div>
 </template>
 <style scoped>

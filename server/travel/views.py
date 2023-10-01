@@ -48,46 +48,6 @@ def listTrending(request):
             travels.append(travel_dict)
     return JsonResponse(travels, safe=False)
 
-
-# @api_view(["GET"])
-# def calculate_points(request):
-#     # Fetch the user, travel item, and user's favor using the provided IDs
-#     user = CustomUser.objects.get(id=request.data["user_id"])
-#     travel_item = TravelList.objects.get(id=request.data["travel_id"])
-#     user_favor = Favor.objects.get(user_id=request.data["user_id"])
-#     age = datetime.now().year - user.dob.year
-#     # Initialize points
-#     points = 0
-#     print(age)
-#     # Check if user's favor matches the place
-#     if user_favor.mountain and travel_item.place == "mountain":
-#         points += 40
-#     if user_favor.sea and travel_item.place == "sea":
-#         points += 40
-
-#     # Check age and price conditions
-#     # age =
-#     if age < 22 and travel_item.price < 1000000:
-#         points += 20
-
-#     # Check if user's favor matches the type
-#     if user_favor.risky and travel_item.type == "risky":
-#         points += 40
-#     if user_favor.resortive and travel_item.type == "resortive":
-#         points += 40
-
-#     # Create and save the Point object
-#     point_record, created = Point.objects.get_or_create(
-#         user_id=user, travel_id=travel_item, defaults={"point": 0}
-#     )
-#     print(points)
-#     point_record.point = points
-#     point_record.save()
-
-#     response_data = {"points": points}
-#     return Response(response_data)
-
-
 def calculate_points(user_id_, travel_id):
     # Fetch the user, travel item, and user's favor using the provided IDs
     user = CustomUser.objects.get(id=user_id_)

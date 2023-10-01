@@ -1,6 +1,6 @@
 <script setup>
 import useTravel from "../../stores/travel";
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
 const { getRecommendTrip, travels } = useTravel();
 onMounted(() => getRecommendTrip());
@@ -8,126 +8,30 @@ onMounted(() => getRecommendTrip());
 <template>
   <div class="text-header">GỢI Ý CHUYẾN ĐI THEO SỞ THÍCH CỦA BẠN</div>
   <div class="flex-container">
-    <div v-for="(trip, index) in travels.recommendations" :key="index"  class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      style="position: relative" >
-      <img
-        :src="`./public/assets/homestay_img/${trip.homestay_img}`"
-        class="rounded-t-lg"
-        alt="Travel image"
-      />
-      <div class="p-5" sty>
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-        {{trip.title}}
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-
-        </p>
-      </div>
+    <div
+      v-for="(trip, index) in travels.recommendations"
+      :key="index"
+      class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      style="position: relative"
+    >
+      <!-- <RouterLink :to="{ name: 'homestay', params: { id: trip.id } }"> -->
+        <img
+          :src="`./public/assets/homestay_img/${trip.homestay_img}`"
+          class="rounded-t-lg"
+          alt="Travel image"
+        />
+        <div class="p-5" sty>
+          <h5
+            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+          >
+            {{ trip.title }}
+          </h5>
+          <!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          </p> -->
+        </div>
+      <!-- </RouterLink> -->
     </div>
   </div>
-    <!-- <div
-      class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      style="position: relative"
-    >
-      <a href="#">
-        <img
-          class="rounded-t-lg"
-          src="../../../public/demo_rcm.jpeg"
-          alt="Travel image"
-        />
-      </a>
-      <div class="p-5" sty>
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Mai Châu
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Mai Châu là điểm du lịch thuộc tỉnh Hòa Bình mang trong mình vẻ đẹp
-          đặc trưng của Tây Bắc. Đến Mai Châu, du khách sẽ được hòa mình vào
-          không gian đầy lãng mạn với các địa danh du lịch thơ mộng, hùng vĩ và
-          những kỹ niệm khó quên...
-        </p>
-      </div>
-    </div>
-    <div
-      class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      style="position: relative"
-    >
-      <a href="#">
-        <img
-          class="rounded-t-lg"
-          src="../../../public/demo_rcm.jpeg"
-          alt="Travel image"
-        />
-      </a>
-      <div class="p-5" sty>
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Mai Châu
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Mai Châu là điểm du lịch thuộc tỉnh Hòa Bình mang trong mình vẻ đẹp
-          đặc trưng của Tây Bắc. Đến Mai Châu, du khách sẽ được hòa mình vào
-          không gian đầy lãng mạn với các địa danh du lịch thơ mộng, hùng vĩ và
-          những kỹ niệm khó quên...
-        </p>
-      </div>
-    </div>
-    <div
-      class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      style="position: relative"
-    >
-      <a href="#">
-        <img
-          class="rounded-t-lg"
-          src="../../../public/demo_rcm.jpeg"
-          alt="Travel image"
-        />
-      </a>
-      <div class="p-5" sty>
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Mai Châu
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Mai Châu là điểm du lịch thuộc tỉnh Hòa Bình mang trong mình vẻ đẹp
-          đặc trưng của Tây Bắc. Đến Mai Châu, du khách sẽ được hòa mình vào
-          không gian đầy lãng mạn với các địa danh du lịch thơ mộng, hùng vĩ và
-          những kỹ niệm khó quên...
-        </p>
-      </div>
-    </div>
-    <div
-      class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      style="position: relative"
-    >
-      <a href="#">
-        <img
-          class="rounded-t-lg"
-          src="../../../public/demo_rcm.jpeg"
-          alt="Travel image"
-        />
-      </a>
-      <div class="p-5" sty>
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Mai Châu
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Mai Châu là điểm du lịch thuộc tỉnh Hòa Bình mang trong mình vẻ đẹp
-          đặc trưng của Tây Bắc. Đến Mai Châu, du khách sẽ được hòa mình vào
-          không gian đầy lãng mạn với các địa danh du lịch thơ mộng, hùng vĩ và
-          những kỹ niệm khó quên...
-        </p>
-      </div>
-    </div>
-  </div> -->
 </template>
 <style scoped>
 .text-header {

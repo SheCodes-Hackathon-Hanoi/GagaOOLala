@@ -9,15 +9,21 @@ onMounted(() => getTrendingTrip());
 <template>
   <div class="text-header">THỊNH HÀNH</div>
   <div class="flex-container">
-    <div v-for="(trip, index) in travels" :key="index"  style="position: relative" >
-      <img
-        :src="`./public/assets/homestay_img/${trip.homestay_img}`"
-        style="border-radius: 23px; height: 100%"
-        alt="Travel image"
-      />
-      <div style="position: absolute; bottom: 0px; left: 10%; color: white">
-        {{trip.title}}
-      </div>
+    <div
+      v-for="(trip, index) in travels"
+      :key="index"
+      style="position: relative"
+    >
+      <RouterLink :to="{ name: 'homestay', params: { id: trip.id } }">
+        <img
+          :src="`./public/assets/homestay_img/${trip.homestay_img}`"
+          style="border-radius: 23px; height: 100%"
+          alt="Travel image"
+        />
+        <div style="position: absolute; bottom: 0px; left: 10%; color: white">
+          {{ trip.title }}
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>

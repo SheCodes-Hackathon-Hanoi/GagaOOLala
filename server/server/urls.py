@@ -31,5 +31,4 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("api/point/", views.calculate_points),
     path("api/recommend/", views.listRecommend),
-    # path("api/instances/", views.TravelListView.as_view(), name="instances"),
 ]

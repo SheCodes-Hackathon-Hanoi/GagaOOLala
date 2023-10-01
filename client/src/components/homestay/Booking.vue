@@ -1,9 +1,19 @@
 <script setup>
 import { reactive } from "vue";
+import useTravel from "../../stores/travel";
+import { onMounted } from "vue";
 const form = reactive({
   checkin: "",
   checkout: "",
 });
+const { getTravel, travel } = useTravel();
+const props = defineProps({
+    id: {
+        required: true,
+        type: String,
+    },
+});
+onMounted(() => getTravel(props.id));
 </script>
 <template>
   <div class="header-text">Đặt lịch</div>
@@ -38,9 +48,9 @@ const form = reactive({
       <tr>
         <td>{{ form.checkin }}</td>
         <td>{{ form.checkout }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Avalable</td>
+        <td>{{ travel.price }}</td>
+        <td>{{ travel.place }} <br> {{ travel.type }}</td>
       </tr>
     </table>
   </div>

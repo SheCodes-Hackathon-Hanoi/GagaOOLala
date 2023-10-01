@@ -1,7 +1,18 @@
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+import useTravel from "../../../stores/travel";
+const { getTravel, travel } = useTravel();
+const props = defineProps({
+    id: {
+        required: true,
+        type: String,
+    },
+});
+onMounted(() => getTravel(props.id));
+</script>
 <template>
   <div class="flex-container">
-    <div class="price">300,000VNĐ</div>
+    <div class="price">{{ travel.price }}VNĐ</div>
     <button
       type="button"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -9,9 +20,8 @@
       Đặt ngay
     </button>
     <div class="info">
-      Địa chỉ: Tổ 2, thị trấn Mù Cang Chải <br />
-      Host: Nùng Cao N <br />
-      Thuộc khu vực: Mù Cang Chải, Yên Bái <br />
+      Địa chỉ: {{ travel.location }} <br />
+      Host: {{ travel.hostName }} <br />
       Các dịch vụ nổi bật do host cung cấp: <br />
       Du lịch sinh thái: cắm trại, trekking rừng <br />
       Du lịch cộng đồng: Trải nghiệm nếp sống và tự tay nấu những món ăn ngon

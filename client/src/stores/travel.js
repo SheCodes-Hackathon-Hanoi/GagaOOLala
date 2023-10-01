@@ -17,6 +17,10 @@ export default function useTravel() {
     const response = await axios.get("/trending/");
     travels.value = response.data;
   };
+  const getTravel = async (id) => {
+    const response = await axios.get("/travel/" + id);
+    travel.value = response.data;
+  };
 
   return {
     travel,
@@ -24,5 +28,6 @@ export default function useTravel() {
     errors,
     getRecommendTrip,
     getTrendingTrip,
+    getTravel,
   };
 }
