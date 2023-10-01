@@ -21,7 +21,7 @@ class TravelList(models.Model):
     location = models.TextField(default="", blank=False)
     price = models.IntegerField(default=0, blank=False)
     homestay_img = models.FileField(
-        blank=True, null=True, upload_to="assets/homestay_img"
+        blank=True, null=True, upload_to="client/public/assets/homestay_img"
     )
     pano_img = models.FileField(blank=True, null=True, upload_to="assets/pano")
     PLACE_CHOICES = (("mountain", "Mountain"), ("sea", "Sea"))

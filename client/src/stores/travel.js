@@ -8,18 +8,14 @@ export default function useTravel() {
   const errors = ref({}); //object
 
   const getRecommendTrip = async () => {
-    const response = await axios.get("/recommend/",{
-      data: {
-        user_id: 1,
-      },
-    });
+    const data = { user_id: 1 };
+    const response = await axios.post("/recommend/", data);
     travels.value = response.data;
+    console.log(travels.value);
   };
   const getTrendingTrip = async () => {
     const response = await axios.get("/trending/");
-    return response.data;
-    // travels.value = response.data;
-    // console.log(travels.value);
+    travels.value = response.data;
   };
 
   return {

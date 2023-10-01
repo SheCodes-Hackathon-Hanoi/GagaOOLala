@@ -1,7 +1,7 @@
 <script setup>
 import useTravel from "../../stores/travel";
 
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
 const { getTrendingTrip, travels } = useTravel();
 onMounted(() => getTrendingTrip());
@@ -9,9 +9,9 @@ onMounted(() => getTrendingTrip());
 <template>
   <div class="text-header">THỊNH HÀNH</div>
   <div class="flex-container">
-    <div v-for="trip in travels" style="position: relative" >
+    <div v-for="(trip, index) in travels" :key="index"  style="position: relative" >
       <img
-        src={{ trip.homestay_img }}
+        :src="`./public/assets/homestay_img/${trip.homestay_img}`"
         style="border-radius: 23px; height: 100%"
         alt="Travel image"
       />
@@ -19,46 +19,6 @@ onMounted(() => getTrendingTrip());
         {{trip.title}}
       </div>
     </div>
-    <div style="position: relative">
-      <img
-        src="../../../public/demo_rcm.jpeg"
-        style="border-radius: 23px; height: 100%"
-        alt="Travel image"
-      />
-      <div style="position: absolute; bottom: 0px; left: 10%; color: white">
-        Mù Cang Chải
-      </div>
-    </div>
-    <!-- <div style="position: relative">
-      <img
-        src="../../../public/demo_rcm.jpeg"
-        style="border-radius: 23px; height: 100%"
-        alt="Travel image"
-      />
-      <div style="position: absolute; bottom: 0px; left: 10%; color: white">
-        Mù Cang Chải
-      </div>
-    </div>
-    <div style="position: relative">
-      <img
-        src="../../../public/demo_rcm.jpeg"
-        style="border-radius: 23px; height: 100%"
-        alt="Travel image"
-      />
-      <div style="position: absolute; bottom: 0px; left: 10%; color: white">
-        Mù Cang Chải
-      </div>
-    </div>
-    <div style="position: relative">
-      <img
-        src="../../../public/demo_rcm.jpeg"
-        style="border-radius: 23px; height: 100%"
-        alt="Travel image"
-      />
-      <div style="position: absolute; bottom: 0px; left: 10%; color: white">
-        Mù Cang Chải
-      </div>
-    </div> -->
   </div>
 </template>
 <style scoped>

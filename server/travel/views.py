@@ -17,6 +17,7 @@ from .serializers import (
     # PointSerializer,
 )
 from django.db.models import F
+import os
 
 
 # Create your views here.
@@ -42,7 +43,8 @@ def listTrending(request):
                     "type",
                 ],
             )
-            travel_dict["homestay_img"] = travel.homestay_img.path
+            file_name = os.path.basename(travel.homestay_img.path)
+            travel_dict["homestay_img"] = file_name
             travels.append(travel_dict)
     return JsonResponse(travels, safe=False)
 
@@ -113,12 +115,10 @@ def calculate_points(user_id_, travel_id):
         points += 40
     if user_favor.resortive and travel_item.type == "resortive":
         points += 40
-    print("point")
-    print(points)
     return points
 
 
-@api_view(["GET"])
+@api_view(["POST"])
 def listRecommend(request):
     user_id = request.data["user_id"]  # Get the user_id from the request data
 
@@ -140,6 +140,8 @@ def listRecommend(request):
     # Get the top 3 travel items
     top_3_items = sorted_items[:3]
 
+
+
     # Create a response dictionary with the top 3 items and their points
     response_data = []
     for item in top_3_items:
@@ -148,6 +150,7 @@ def listRecommend(request):
                 "travel_id": item.id,
                 "title": item.title,  # Replace with the actual field name
                 "points": points.get(item.id, 0),
+                "homestay_img": os.path.basename(item.homestay_img.path),
             }
         )
 
